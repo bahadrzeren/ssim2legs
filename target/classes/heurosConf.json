@@ -1,0 +1,6 @@
+{
+  "ssim": "C:/docs/ParsData/ssim/SSIM_JAN2014_W13_131220.txt",
+  "rotation": "C:/docs/ParsData/rotation/AC_JAN2014_131220.txt",
+  "carryIn": "C:/docs/ParsData/carryin/CARRY_IN_JAN2014_20Dec2013_1209.etab",
+  "output": "C:/docs/ParsData/timetableJan2013.legs"
+}
