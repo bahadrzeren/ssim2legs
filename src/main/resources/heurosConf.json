@@ -1,6 +1,6 @@
 {
-  "ssim": "C:/docs/ParsData/ssim/SSIM_JAN2014_W13_131220.txt",
-  "rotation": "C:/docs/ParsData/rotation/AC_JAN2014_131220.txt",
-  "carryIn": "C:/docs/ParsData/carryin/CARRY_IN_JAN2014_20Dec2013_1209.etab",
-  "output": "C:/docs/ParsData/timetableJan2013.legs"
+  "ssim": "C:/docs/ParsData/ssim/SSIM_JUN2014_S14_140520.txt",
+  "rotation": "C:/docs/ParsData/rotation/AC_JUN2014_140520.txt",
+  "carryIn": "C:/docs/ParsData/carryin/CARRY_IN_JUN2014_20May2014_0627.etab",
+  "output": "C:/docs/ParsData/timetable201406.legs"
 }
