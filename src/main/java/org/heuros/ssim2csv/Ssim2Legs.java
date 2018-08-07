@@ -5,7 +5,7 @@ import java.io.IOException;
 import org.heuros.conf.HeurosConfFactory;
 import org.heuros.core.base.Loader;
 import org.heuros.core.base.Reporter;
-import org.heuros.core.model.Leg;
+import org.heuros.core.data.model.Leg;
 import org.heuros.director.DataTransformDirector;
 import org.heuros.loader.ssim.SsimLoader;
 import org.heuros.reporter.legcsv.LegCsvReporter;
