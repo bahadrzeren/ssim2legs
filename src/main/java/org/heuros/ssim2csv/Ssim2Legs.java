@@ -5,7 +5,7 @@ import java.io.IOException;
 import org.heuros.conf.HeurosConfFactory;
 import org.heuros.core.base.Loader;
 import org.heuros.core.base.Reporter;
-import org.heuros.core.data.model.Leg;
+import org.heuros.data.model.LegImpl;
 import org.heuros.director.DataTransformDirector;
 import org.heuros.loader.ssim.SsimLoader;
 import org.heuros.reporter.legcsv.LegCsvReporter;
@@ -31,13 +31,13 @@ public class Ssim2Legs {
 
 		if (conf != null) {
 
-			Loader<Leg> loader = new SsimLoader(conf.getSsim(),
+			Loader<LegImpl> loader = new SsimLoader(conf.getSsim(),
 												conf.getRotation(),
 												conf.getCarryIn());
 
-			Reporter<Leg> reporter = new LegCsvReporter(conf.getOutput());
+			Reporter<LegImpl> reporter = new LegCsvReporter(conf.getOutput());
 
-			new DataTransformDirector<Leg>().registerLoader(loader)
+			new DataTransformDirector<LegImpl>().registerLoader(loader)
 											.registerReporter(reporter)
 											.proceed();
 		}
