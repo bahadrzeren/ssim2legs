@@ -4,11 +4,14 @@ import java.io.IOException;
 import java.util.List;
 
 import org.heuros.conf.HeurosConfFactory;
+import org.heuros.data.model.LegExtensionFactory;
 import org.heuros.data.model.LegModel;
 import org.heuros.data.model.LegWrapper;
+import org.heuros.data.model.LegWrapperFactory;
 import org.heuros.loader.ssim.SsimLoader;
-import org.heuros.processor.legwrapper.LegProcessor;
+import org.heuros.processor.leg.LegProcessor;
 import org.heuros.reporter.legcsv.LegCsvReporter;
+import org.heuros.rule.LegRuleContext;
 
 /**
  * The main class that is used to start process.
@@ -41,7 +44,13 @@ public class Ssim2Legs {
 			/**
 			 * Map to LegWrapper
 			 */
-			List<LegWrapper> legWrappers = new LegProcessor().proceed(legs);
+			LegRuleContext legRuleContext = new LegRuleContext();
+			LegExtensionFactory legExtensionFactory = new LegExtensionFactory();
+			LegWrapperFactory legWrapperFactory = new LegWrapperFactory(legRuleContext, legExtensionFactory);
+			List<LegWrapper> legWrappers = new LegProcessor().setRuleContext(legRuleContext)
+																.setExtensionFactory(legExtensionFactory)
+																.setWrapperFactory(legWrapperFactory)
+																.proceed(legs);
 
 			/**
 			 * Convert input data into CSV format.
