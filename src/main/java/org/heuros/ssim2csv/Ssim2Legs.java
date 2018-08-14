@@ -4,8 +4,10 @@ import java.io.IOException;
 import java.util.List;
 
 import org.heuros.conf.HeurosConfFactory;
-import org.heuros.data.model.Leg;
+import org.heuros.data.model.LegModel;
+import org.heuros.data.model.LegWrapper;
 import org.heuros.loader.ssim.SsimLoader;
+import org.heuros.processor.legwrapper.LegProcessor;
 import org.heuros.reporter.legcsv.LegCsvReporter;
 
 /**
@@ -31,16 +33,21 @@ public class Ssim2Legs {
 			/**
 			 * Load input data.
 			 */
-			List<Leg> legs = new SsimLoader().setSsimFileName(conf.getSsim())
+			List<LegModel> legs = new SsimLoader().setSsimFileName(conf.getSsim())
 														.setAcRotationFileName(conf.getRotation())
 														.setCarryInFileName(conf.getCarryIn())
 														.extractData();
 
 			/**
+			 * Map to LegWrapper
+			 */
+			List<LegWrapper> legWrappers = new LegProcessor().proceed(legs);
+
+			/**
 			 * Convert input data into CSV format.
 			 */
 			new LegCsvReporter().setLegCsvReporter(conf.getOutput())
-								.reportData(legs);
+								.reportData(legWrappers);
 		}
     }
 }
