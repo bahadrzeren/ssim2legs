@@ -21,7 +21,7 @@ import org.heuros.rule.LegRuleContext;
 public class Ssim2Legs {
 
 	public static void main(String[] args) throws IOException {
-    	/**
+    	/*
     	 * Load configuration file.
     	 */
 		String confFileName = null;
@@ -33,7 +33,7 @@ public class Ssim2Legs {
 								.createConfObject(confFileName, HeurosConf.class);
 
 		if (conf != null) {
-			/**
+			/*
 			 * Load input data.
 			 */
 			List<LegModel> legs = new SsimLoader().setSsimFileName(conf.getSsim())
@@ -41,8 +41,8 @@ public class Ssim2Legs {
 														.setCarryInFileName(conf.getCarryIn())
 														.extractData();
 
-			/**
-			 * Map to LegWrapper
+			/*
+			 * Map Leg list to LegWrapper list
 			 */
 			LegRuleContext legRuleContext = new LegRuleContext();
 			LegExtensionFactory legExtensionFactory = new LegExtensionFactory();
@@ -52,7 +52,7 @@ public class Ssim2Legs {
 																.setWrapperFactory(legWrapperFactory)
 																.proceed(legs);
 
-			/**
+			/*
 			 * Convert input data into CSV format.
 			 */
 			new LegCsvReporter().setLegCsvReporter(conf.getOutput())
