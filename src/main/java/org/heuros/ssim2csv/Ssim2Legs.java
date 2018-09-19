@@ -6,7 +6,6 @@ import java.util.stream.Collectors;
 
 import org.heuros.conf.HeurosConfFactory;
 import org.heuros.data.model.Leg;
-import org.heuros.data.model.LegFactory;
 import org.heuros.data.model.LegView;
 import org.heuros.loader.ssim.SsimLoader;
 import org.heuros.reporter.legcsv.LegCsvReporter;
@@ -37,7 +36,6 @@ public class Ssim2Legs {
 			List<Leg> legs = new SsimLoader().setSsimFileName(conf.getSsim())
 														.setAcRotationFileName(conf.getRotation())
 														.setCarryInFileName(conf.getCarryIn())
-														.setModelFactory(new LegFactory())
 														.extractData();
 
 			List<LegView> legViews = legs.stream()
