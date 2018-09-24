@@ -36,6 +36,7 @@ public class Ssim2Legs {
 			List<Leg> legs = new SsimLoader().setSsimFileName(conf.getSsim())
 														.setAcRotationFileName(conf.getRotation())
 														.setCarryInFileName(conf.getCarryIn())
+														.setNumOfBases(2)
 														.extractData();
 
 			List<LegView> legViews = legs.stream()
